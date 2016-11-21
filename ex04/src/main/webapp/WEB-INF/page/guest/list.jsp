@@ -25,7 +25,7 @@
 	<c:forEach items="${alist}" var="bean">
 		<tr>
 			<td>${bean.sabun }</td>
-			<td>${bean.name }</td>
+			<td><a href="detail.do?idx=${bean.name }">${bean.name }</a></td>
 			<td>${bean.nalja }</td>
 			<td>${bean.pay }</td>
 		</tr>

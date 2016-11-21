@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.mvc2.controller.DetailImp;
 import com.mvc2.controller.IndexImp;
 import com.mvc2.controller.InsertOneImp;
 import com.mvc2.controller.InterController;
@@ -51,9 +52,9 @@ public class DispatcherServlet extends HttpServlet {
 		}else if(path.equals("/list.do")){
 			ic=new ListImp();
 		}else if(path.equals("/add.do")){
-			ic = new InsertOneImp();
-			
-			
+			ic = new InsertOneImp();	
+		}else if(path.equals("/detail.do")){
+			ic = new DetailImp();
 		}
 		
 		
