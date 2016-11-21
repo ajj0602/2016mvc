@@ -7,12 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.mvc2.controller.IndexImp;
+import com.mvc2.controller.InsertOneImp;
 import com.mvc2.controller.InterController;
 import com.mvc2.controller.ListImp;
 
 
 public class DispatcherServlet extends HttpServlet {
+	
+	static Logger logger = Logger.getLogger("com.mvc2.core.DispatcherServlet");
+	
+	
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doDo(request, response);
@@ -27,6 +35,12 @@ public class DispatcherServlet extends HttpServlet {
 	
 	protected void doDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = request.getServletPath();
+		logger.debug(path);
+		logger.info(path);
+		logger.warn(path);
+		logger.error(path);
+		logger.fatal(path);
+		//우선순위 별로 정렬 fatal은 무조건 나옴, error
 		System.out.println(path);
 		
 		InterController ic = null;
@@ -36,6 +50,10 @@ public class DispatcherServlet extends HttpServlet {
 
 		}else if(path.equals("/list.do")){
 			ic=new ListImp();
+		}else if(path.equals("/add.do")){
+			ic = new InsertOneImp();
+			
+			
 		}
 		
 		
