@@ -13,11 +13,8 @@ public class ListImp implements InterController {
 	public String execute(HttpServletRequest req, HttpServletResponse res) {
 		
 		GuestDao dao = new GuestDao();
-		//List<GuestVo> list = dao.selectAll();
-		//req.setAttribute("alist", list);
-		
-		req.setAttribute("alist", dao.selectAll());
-		
+		List list = dao.selectAll();
+		req.setAttribute("alist", list);
 		return "guest/list";
 	}
 
